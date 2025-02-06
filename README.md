@@ -1,78 +1,105 @@
-# Small Data Augmentor 🚀
+# AI Data Augmentor 🚀
 
-A simple Streamlit app to enhance small datasets by generating synthetic rows using OpenAI's GPT models. Upload a CSV file, specify the number of rows to add, and download the augmented dataset.
-
-## Features
-✅ Upload a CSV file for augmentation  
-✅ Specify the number of synthetic rows to generate  
-✅ AI-generated data using OpenAI's GPT models  
-✅ Download the augmented dataset as a CSV file  
-
-## Installation
-
-Ensure you have Python 3.7+ installed.
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/small_data_augmentor.git
-   cd small_data_augmentor
-   ```
-
-2. Run the installation script:
-   - On **Linux/MacOS**:
-     ```bash
-     bash install.sh
-     ```
-   - On **Windows**:
-     ```bash
-     install.bat
-     ```
-
-This will create a virtual environment and install the required dependencies from `requirements.txt`.
-
-## Usage
-
-1. Set up your OpenAI API key as an environment variable:
-   ```bash
-   export OPENAI_API_KEY='your-api-key-here'
-   ```
-   Alternatively, you can store it in Streamlit secrets.
-
-2. Run the Streamlit app:
-   ```bash
-   streamlit run small_data_augmentor.py
-   ```
-
-3. Open your web browser and navigate to the URL shown in the terminal.
-
-## How It Works
-1. Upload a CSV file 📂
-2. Choose the number of synthetic rows to generate 🔢
-3. Click on **Generate Synthetic Data** 🤖
-4. Download the augmented dataset 📅
-
-## Example Output
-After processing, the app displays:
-- **Original Dataset**: Preview of the uploaded CSV
-- **Augmented Dataset**: Original dataset + synthetic rows
-- **Download Option**: Button to download the new dataset
-
-## Code Overview
-The main logic includes:
-- `file_uploader`: Uploads the user's CSV file
-- `number_input`: Allows users to select the number of new rows
-- `generate_synthetic_data`: Uses OpenAI to generate new rows
-- `download_button`: Provides a CSV download link
-
-## Notes
-- The app assumes that OpenAI will generate synthetic data in a comma-separated format matching the original dataset's columns.
-- Replace `text-davinci-003` with the appropriate OpenAI model if needed.
-- Ensure you have a valid OpenAI API key before running the app.
-
-## License
-This project is licensed under the MIT License.
+A **Streamlit app** that enhances small datasets by generating **synthetic rows** using AI models like **OpenAI's GPT-4** and **DeepSeek r-1**. The app intelligently detects ID columns and ensures consistent data formatting, making it perfect for augmenting datasets of any structure.
 
 ---
 
-Enjoy augmenting your datasets! 🚀
+## Features
 
+✅ Upload a **CSV** file for data augmentation  
+✅ Choose between **OpenAI GPT-4** and **DeepSeek r-1** models  
+✅ Automatically detect and increment **ID columns**  
+✅ Specify the **number of synthetic rows** to generate  
+✅ Maintain **data types** and **formats** dynamically  
+✅ Download the **augmented dataset** as a CSV file  
+
+---
+
+## Installation
+
+Ensure you have **Python 3.7+** installed.
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/ai_data_augmentor.git
+   cd ai_data_augmentor
+   ```
+
+2. **Install the required dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## Configuration
+
+1. **Set up your API keys**:
+   - **OpenAI GPT-4**:
+     - Create a `.streamlit/secrets.toml` file and add your OpenAI API key:
+       ```toml
+       [openai]
+       api_key = "your-openai-api-key"
+       ```
+   - **DeepSeek r-1**:
+     - Add your DeepSeek API key:
+       ```toml
+       [deepseek]
+       api_key = "your-deepseek-api-key"
+       ```
+
+2. **Run the Streamlit app**:
+   ```bash
+   streamlit run ai_data_augmentor.py
+   ```
+
+3. Open your browser and navigate to the **local URL** provided in the terminal.
+
+---
+
+## How It Works
+
+1. **Upload a CSV file** 📂
+2. **Choose a model**: GPT-4 or DeepSeek r-1 🤖
+3. **Specify the number of rows** to generate 🔢
+4. The app detects any **ID columns** and increments them automatically
+5. Click **Generate Synthetic Data** and preview the **augmented dataset**
+6. **Download** the final augmented dataset as a CSV 📥
+
+---
+
+## Example Output
+
+After processing, the app displays:
+- **Original Dataset**: Preview of the uploaded CSV file
+- **Augmented Dataset**: Original data + synthetic rows
+- **Download Option**: Button to download the augmented CSV file
+
+---
+
+## Code Overview
+
+- **File Upload**: `st.file_uploader()` for CSV input  
+- **Model Selection**: Choose between **GPT-4** and **DeepSeek r-1**  
+- **ID Detection**:  
+  - Dynamically detects ID columns if:
+    - The **column name contains "id"** (case-insensitive)
+    - The column is of **integer type**
+- **Synthetic Data Generation**:  
+  - The `generate_synthetic_data()` function uses the selected AI model to create new rows.
+  - Ensures consistent **data types** and **formats** across all columns.
+- **Download Button**: Provides a CSV download link for the augmented dataset.
+
+---
+
+## Notes
+
+- The app **automatically detects** ID columns and increments them if needed.  
+- Ensure your API keys for **OpenAI** and **DeepSeek** are correctly configured in `.streamlit/secrets.toml`.  
+- If no ID column is detected, the app will append rows **without modifying any columns**.
+
+---
+
+## License
+
+This project is licensed under the **MIT License**.
