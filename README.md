@@ -9,6 +9,7 @@ A **Streamlit app** that enhances small datasets by generating **synthetic rows*
 ✅ Upload a **CSV** file for data augmentation  
 ✅ Choose between:
    - **Adding Synthetic Rows** using AI models 🤖**
+     
 ✅ Automatically detect and increment **ID columns**  
 ✅ Maintain **data types** and **formats** dynamically  
 ✅ Download the **augmented dataset** as a CSV file  
