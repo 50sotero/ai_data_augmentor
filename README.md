@@ -26,8 +26,9 @@ Ensure you have **Python 3.7+** installed.
    cd ai_data_augmentor
    ```
 
-2. **Install the required dependencies**:
+2. **Activate venv & install the required dependencies**:
    ```bash
+   venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
