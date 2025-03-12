@@ -1,4 +1,4 @@
-# AI Data Augmentor 🚀
+# AI Data Augmentor 🚀 https://aidataaug.streamlit.app/
 
 A **Streamlit app** that enhances small datasets by generating **synthetic rows** using AI models like **OpenAI's GPT-4** and **DeepSeek r-1**, and by **imputing missing values** in numeric columns using **KNN imputation**. The app intelligently detects ID columns, ensures consistent data formatting, and handles missing data, making it perfect for comprehensive dataset augmentation.
 
