@@ -27,7 +27,7 @@ if model_choice == "GPT-4":
     client = OpenAI(api_key=api_key)
 elif model_choice == "DeepSeek r-1":
     api_key = st.secrets["deepseek"]["api_key"]
-    model_engine = "deepseek-r1"
+    model_engine = "deepseek-chat"
     client = OpenAI(api_key=api_key, base_url="https://api.deepseek.com/v1")
 
 # Function to generate synthetic data using the selected model
